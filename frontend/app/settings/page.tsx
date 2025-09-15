@@ -14,14 +14,19 @@ import { useAuth } from "@/contexts/auth-context"
 import { User, Store, Bell, Shield, CreditCard, Database, Palette, HelpCircle, LogOut } from "lucide-react"
 
 export default function SettingsPage() {
-  const { user, logout } = useAuth()
+  const { user, logout } = useAuth();
+
+  const ScrollToView = (id:string)=>{
+    const ele = document.getElementById(id);
+    ele?.scrollIntoView({behavior:"smooth"})
+  }
 
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-background">
         <Navigation />
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="container max-w-[1100px] mx-auto px-4 py-8">
           {/* Header */}
           <div className="mb-8">
             <h1 className="font-display text-4xl font-bold text-foreground mb-2">Settings</h1>
@@ -30,57 +35,68 @@ export default function SettingsPage() {
 
           <div className="grid lg:grid-cols-4 gap-8">
             {/* Settings Navigation */}
-            <div className="lg:col-span-1">
-              <Card className="rounded-2xl">
-                <CardHeader>
-                  <CardTitle className="text-lg">Settings Menu</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <Button variant="ghost" className="w-full justify-start bg-accent/10 text-accent rounded-xl">
-                    <User className="h-4 w-4 mr-2" />
-                    Profile
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start rounded-xl">
-                    <Store className="h-4 w-4 mr-2" />
-                    Business
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start rounded-xl">
-                    <Bell className="h-4 w-4 mr-2" />
-                    Notifications
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start rounded-xl">
-                    <Shield className="h-4 w-4 mr-2" />
-                    Security
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start rounded-xl">
-                    <CreditCard className="h-4 w-4 mr-2" />
-                    Billing
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start rounded-xl">
-                    <Database className="h-4 w-4 mr-2" />
-                    Integrations
-                  </Button>
-                  <Separator className="my-2" />
-                  <Button variant="ghost" className="w-full justify-start rounded-xl">
-                    <HelpCircle className="h-4 w-4 mr-2" />
-                    Help & Support
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-start text-destructive hover:text-destructive rounded-xl"
-                    onClick={logout}
-                  >
-                    <LogOut className="h-4 w-4 mr-2" />
-                    Sign Out
-                  </Button>
-                </CardContent>
-              </Card>
+            <div className="lg:col-span-1 ">
+              <div className="sticky top-32">
+                  <Card className="rounded-2xl">
+                  <CardHeader>
+                    <CardTitle className="text-lg">Settings Menu</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <Button variant="ghost"
+                      onClick={()=>ScrollToView("profile")}
+                    className="w-full justify-start bg-accent/10 text-accent rounded-xl">
+                      <User className="h-4 w-4 mr-2" />
+                      Profile
+                    </Button>
+                    <Button variant="ghost"
+                    onClick={()=>ScrollToView("business")}
+                    className="w-full justify-start rounded-xl">
+                      <Store className="h-4 w-4 mr-2" />
+                      Business
+                    </Button>
+                    <Button variant="ghost" 
+                    onClick={()=>ScrollToView("notification")}
+                    className="w-full justify-start rounded-xl">
+                      <Bell className="h-4 w-4 mr-2" />
+                      Notifications
+                    </Button>
+                    <Button variant="ghost"
+                    className="w-full justify-start rounded-xl">
+                      <Shield className="h-4 w-4 mr-2" />
+                      Security
+                    </Button>
+                    <Button variant="ghost"
+                    onClick={()=>ScrollToView("account")}
+                    className="w-full justify-start rounded-xl">
+                      <CreditCard className="h-4 w-4 mr-2" />
+                      Billing
+                    </Button>
+                    <Button variant="ghost" className="w-full justify-start rounded-xl">
+                      <Database className="h-4 w-4 mr-2" />
+                      Integrations
+                    </Button>
+                    <Separator className="my-2" />
+                    <Button variant="ghost" className="w-full justify-start rounded-xl">
+                      <HelpCircle className="h-4 w-4 mr-2" />
+                      Help & Support
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start text-destructive hover:text-destructive rounded-xl"
+                      onClick={logout}
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Sign Out
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
 
             {/* Settings Content */}
             <div className="lg:col-span-3 space-y-8">
               {/* Profile Settings */}
-              <Card className="rounded-2xl">
+              <Card id="profile" className="rounded-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <User className="h-5 w-5" />
@@ -137,7 +153,7 @@ export default function SettingsPage() {
               </Card>
 
               {/* Business Settings */}
-              <Card className="rounded-2xl">
+              <Card id="business" className="rounded-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Store className="h-5 w-5" />
@@ -198,7 +214,7 @@ export default function SettingsPage() {
               </Card>
 
               {/* Notification Settings */}
-              <Card className="rounded-2xl">
+              <Card id="notification" className="rounded-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Bell className="h-5 w-5" />
@@ -252,7 +268,7 @@ export default function SettingsPage() {
               </Card>
 
               {/* Opous AI Settings */}
-              <Card className="rounded-2xl">
+              <Card id="opousai" className="rounded-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Palette className="h-5 w-5 text-accent" />
@@ -305,7 +321,7 @@ export default function SettingsPage() {
               </Card>
 
               {/* Account Status */}
-              <Card className="rounded-2xl">
+              <Card id="account" className="rounded-2xl">
                 <CardHeader>
                   <CardTitle>Account Status</CardTitle>
                   <CardDescription>Your current plan and usage</CardDescription>

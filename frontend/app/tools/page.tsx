@@ -51,7 +51,7 @@ export default function ToolsPage() {
       <div className="min-h-screen bg-background">
         <Navigation />
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="container max-w-[1100px] mx-auto px-4 py-8">
           {/* Header */}
           <div className="mb-8">
             <h1 className="font-display text-4xl font-bold text-foreground mb-2">Business Tools</h1>
@@ -432,8 +432,8 @@ export default function ToolsPage() {
                       <TrendingUp className="h-6 w-6 mb-2" />
                       Performance Report
                     </Button>
-                    <Link href="/chat">
-                      <Button className="h-20 flex-col bg-accent text-accent-foreground hover:bg-accent/90 rounded-2xl">
+                    <Link href="/chat" className="w-full">
+                      <Button variant="outline" className="h-20 w-full flex-col bg-accent text-accent-foreground hover:bg-accent/90 rounded-2xl">
                         
                         Ask Opous
                       </Button>

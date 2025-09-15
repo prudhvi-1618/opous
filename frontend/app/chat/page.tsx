@@ -244,9 +244,9 @@ export default function ChatPage() {
 
   return (
     <ProtectedRoute>
-      <div className="h-screen bg-background flex flex-col">
+      <div className="min-h-0 h-screen bg-background flex flex-col">
         {/* Header */}
-        <header className="border-b border-border bg-card/50 backdrop-blur-sm p-4 flex-shrink-0">
+        <header className=" border-b border-border bg-card/50 backdrop-blur-sm p-4 sticky top-0 z-20">
           <div className="flex items-center justify-between max-w-6xl mx-auto">
             <div className="flex items-center space-x-4">
               <Link href="/">
@@ -276,14 +276,17 @@ export default function ChatPage() {
         </header>
 
         {/* Main Chat Area */}
-        <div className="flex-1 flex max-w-6xl mx-auto w-full">
+        <div className="flex-1 min-h-0 flex max-w-6xl mx-auto w-full">
           {/* Sidebar with Tools */}
-          <div className="hidden lg:block w-80 border-r border-border bg-muted/30 p-6">
+          <div
+            className="hidden lg:block w-80 border-r border-border bg-muted/30 p-6 custom-scrollbar"
+            style={{ position: "sticky", top: 0, overflowY: "auto" }}
+          >
             <h2 className="font-semibold text-lg mb-4">Business Tools</h2>
             <div className="space-y-3">
               {businessTools.map((tool, index) => (
                 <Link key={index} href={tool.href}>
-                  <Card className="cursor-pointer hover:bg-accent/50 transition-colors rounded-3xl">
+                  <Card className="cursor-pointer hover:bg-accent/50  my-2 transition-colors rounded-3xl">
                     <CardContent className="p-4">
                       <div className="flex items-start space-x-3">
                         <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -307,7 +310,7 @@ export default function ChatPage() {
                   <button
                     key={index}
                     onClick={() => handleQuestionClick(question)}
-                    className="text-left text-xs text-muted-foreground hover:text-foreground transition-colors block w-full p-2 rounded-full hover:bg-accent/50"
+                    className="text-left text-xs text-muted-foreground hover:text-foreground transition-colors block w-full px-4 py-3 rounded-2xl hover:bg-accent/50"
                   >
                     "{question}"
                   </button>
@@ -318,15 +321,15 @@ export default function ChatPage() {
             <div className="mt-8">
               <h3 className="font-semibold text-sm mb-3">Recent Conversations</h3>
               <div className="space-y-2">
-                <div className="p-2 rounded-full bg-accent/20 text-xs">
+                <div className="px-4 py-2 rounded-full bg-accent/20 text-xs">
                   <p className="font-medium">Inventory Check</p>
                   <p className="text-muted-foreground">2 hours ago</p>
                 </div>
-                <div className="p-2 rounded-full hover:bg-accent/20 text-xs cursor-pointer">
+                <div className="px-4 py-2 rounded-full hover:bg-accent/20 text-xs cursor-pointer">
                   <p className="font-medium">Sales Report</p>
                   <p className="text-muted-foreground">Yesterday</p>
                 </div>
-                <div className="p-2 rounded-full hover:bg-accent/20 text-xs cursor-pointer">
+                <div className="px-4 py-2 rounded-full hover:bg-accent/20 text-xs cursor-pointer">
                   <p className="font-medium">Promotion Ideas</p>
                   <p className="text-muted-foreground">3 days ago</p>
                 </div>
@@ -335,12 +338,12 @@ export default function ChatPage() {
           </div>
 
           {/* Chat Messages */}
-          <div className="flex-1 flex flex-col">
-            <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          <div className="flex flex-col">
+            <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar">
+            <div className="flex-1 min-h-0 overflow-y-auto py-6 px-12 space-y-6">
               {messages.length === 1 && (
                 <div className="text-center py-8">
                   <div className="mb-6">
-                    
                     <h2 className="font-display text-2xl font-bold mb-2">Welcome to Opous</h2>
                     <p className="text-muted-foreground">Your AI-powered business assistant is ready to help</p>
                   </div>
@@ -468,8 +471,11 @@ export default function ChatPage() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Area */}
-            <div className="border-t border-border p-4 bg-card/50 backdrop-blur-sm">
+           <div className="h-5">
+           </div>
+          </div>
+           {/* Input Area */}
+              <div className="border-t border-border p-4 bg-card sticky bottom-0 z-10">
               <div className="flex items-end space-x-3 max-w-4xl mx-auto">
                 <Button variant="ghost" size="sm" className="h-[44px] px-3 rounded-full">
                   <Paperclip className="w-4 h-4" />

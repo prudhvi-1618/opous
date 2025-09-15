@@ -26,7 +26,7 @@ export default function DashboardPage() {
       <div className="min-h-screen bg-background">
         <Navigation />
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="container max-w-[1100px] mx-auto px-4 py-8">
           {/* Header */}
           <div className="mb-8">
             <h1 className="font-display text-4xl font-bold text-foreground mb-2">Business Dashboard</h1>
