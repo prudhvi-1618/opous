@@ -40,7 +40,7 @@ export default function LandingPage() {
 
       {/* Features Section */}
       <section id="features" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto">
+        <div className="container max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl font-bold text-foreground mb-4">Everything Your Business Needs</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -92,7 +92,7 @@ export default function LandingPage() {
 
       {/* Benefits Section */}
       <section id="benefits" className="py-20 px-4">
-        <div className="container mx-auto">
+        <div className="container max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="font-display text-4xl font-bold text-foreground mb-6">Why Local Shops Choose Opous</h2>
@@ -162,7 +162,7 @@ export default function LandingPage() {
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto">
+        <div className="container max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl font-bold text-foreground mb-4">Trusted by Local Businesses</h2>
             <p className="text-xl text-muted-foreground">
@@ -245,7 +245,7 @@ export default function LandingPage() {
 
       {/* CTA Section */}
       <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
+        <div className="container max-w-[1200px] mx-auto text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-display text-4xl font-bold text-foreground mb-6">Ready to Transform Your Business?</h2>
             <p className="text-xl text-muted-foreground mb-8">
@@ -265,7 +265,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-border bg-muted/30 py-12 px-4">
-        <div className="container mx-auto">
+        <div className="container max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-display text-8xl md:text-9xl lg:text-[12rem] font-bold text-foreground/10 leading-none">
               OPOUS
