@@ -20,7 +20,7 @@ export function Navigation() {
 
   return (
     <header className="sticky top-4 z-50 px-4">
-      <div className="container mx-auto">
+      <div className="container max-w-[1200px] mx-auto">
         <div className="bg-card/80 backdrop-blur-md border border-border rounded-full px-6 py-3 shadow-lg dark:shadow-black/20">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
